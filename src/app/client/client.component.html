@@ -1,0 +1,130 @@
+
+
+
+<div class="card">
+  <header class="card-header">
+       <p class="card-header-title">
+          New user
+       </p>
+   
+  </header>
+
+ 
+  <div class="card-content">
+     
+     <div style="text-align:center">
+
+
+
+
+                          
+           <form [formGroup]="clientWissal" >
+     
+     
+                  <div class="field">
+                         <label class="label">First Name</label>
+                             <div class="form-group" >
+                                 <div class="control has-icons-left has-icons-right">
+                                          <input class="input form-control" type="text" placeholder="First Name" 
+                                          formControlName="FirstName"  >
+                                          <span class="icon is-small is-left has-text-info">
+                                               <i class="fas fa-user"></i>
+                                          </span>
+         
+                                          <span  *ngIf="f.FirstName.valid" class="icon is-small is-right has-text-success">
+                                               <i class="fas fa-check"></i>
+                                          </span>
+                                          <span  *ngIf="!f.FirstName.valid && !f.FirstName.errors.required" class="icon is-small is-right has-text-danger">
+                                             <i class="fas fa-exclamation-triangle"></i>
+                                        </span>
+                                        <span  *ngIf="!f.FirstName.valid && onNext" class="icon is-small is-right has-text-danger">
+                                                  <i class="fas fa-exclamation-triangle"></i>
+                                                </span>
+                                        
+                                 </div>
+                                 <p *ngIf="f.FirstName.valid" class="help is-success">This First Name is available</p>
+         
+                                 <div *ngIf="!f.FirstName.valid ">
+                                     <p *ngIf="f.FirstName.errors.required && onNext"class="help is-danger">This First Name is invalid</p>
+                                     <p *ngIf="!f.FirstName.errors.required "class="help is-danger">Not Name</p>
+                                     
+                                 </div>    
+                                 <p>{{clientWissalObject.FirstName}}</p>
+                             </div>
+                  </div>
+     
+
+     
+                  <div class="field">
+                         <label class="label">Last Name</label>
+                              <div class="form-group">
+                                  <div class="control has-icons-left has-icons-right">
+                                           <input class="input form-control" type="text" placeholder="Last Name"
+                                            formControlName="LastName"  >
+                                           <span class="icon is-small is-left has-text-info">
+                                                <i class="fas fa-user"></i>
+                                           </span>
+                                           <span  *ngIf="f.LastName.valid" class="icon is-small is-right has-text-success">
+                                                <i class="fas fa-check"></i>
+                                           </span>
+                                           <span  *ngIf="!f.LastName.valid && !f.LastName.errors.required" class="icon is-small is-right has-text-danger">
+                                             <i class="fas fa-exclamation-triangle"></i>
+                                           </span>
+                                           <span  *ngIf="!f.LastName.valid && onNext" class="icon is-small is-right has-text-danger">
+                                                  <i class="fas fa-exclamation-triangle"></i>
+                                                </span>
+                                  </div>
+                                  <p *ngIf="f.LastName.valid" class="help is-success">This Last Name is available</p>
+                                 
+                                  <div *ngIf="!f.LastName.valid">
+                                   <p *ngIf="f.LastName.errors.required && onNext"class="help is-danger">This Last Name is invalid</p>
+                                   <p *ngIf="!f.LastName.errors.required"class="help is-danger">Not Name</p>
+                                   
+                                  </div>    
+                               </div>
+                  </div>
+
+   
+
+     
+    
+     
+                  <div class="field">
+                         <label class="label">Adress</label>
+                              <div class="form-group">
+                                           <textarea class="textarea form-control" placeholder="Adress"formControlName="Adress"></textarea>
+                                           <p *ngIf="f.Adress.valid" class="help is-success">This Adress is available</p>
+                                 
+                                           <div *ngIf="!f.Adress.valid && onNext">
+                                               <p class="help is-danger">This Adress is invalid</p>
+                                           </div>  
+                              </div>
+                  </div>
+     
+                     
+     
+     
+     
+     
+                  <div class="field">
+                         <div class="control">
+                               <label class="checkbox">
+                                      <input type="checkbox" formControlName="Adress" >
+                               I agree to the <a href="#">terms and conditions</a>
+                               
+                               </label>
+                          </div>
+                  </div>
+     
+     
+     
+          </form>
+       </div>
+       <div class="columns">
+               <div class="column is-half"></div>
+                <button  class="column is-half"(click)="Next()">Next</button>
+       </div>
+    </div>
+
+
+  </div>

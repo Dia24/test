@@ -1,0 +1,158 @@
+<div class="card">
+    
+   
+    <div class="card-content">
+       
+       <div style="text-align:center">
+  
+  
+  
+  
+                            
+             <form [formGroup]="clientNextWissal" novalidate>
+       
+       
+                <div class="field">
+                    <label class="label">User Name</label>
+                         <div class="form-group">
+                             <div class="control has-icons-left has-icons-right">
+                                      <input class="input form-control" type="text" placeholder="User Name" formControlName="UserName">
+                                      <span class="icon is-small is-left has-text-info">
+                                           <i class="fas fa-user"></i>
+                                      </span>
+                                      <span  *ngIf="f.UserName.valid" class="icon is-small is-right has-text-success">
+                                           <i class="fas fa-check"></i>
+                                      </span>
+                                      <span  *ngIf="!f.UserName.valid" class="icon is-small is-right has-text-danger">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                   </span>
+                             </div>
+                             <p *ngIf="f.UserName.valid" class="help is-success">This User Name is available</p>
+                            
+                             <div *ngIf="!f.UserName.valid">
+                                    <p *ngIf="f.UserName.errors.required"class="help is-danger">This Last Name is invalid</p>
+                                    <p *ngIf="!f.UserName.errors.required"class="help is-danger">This User Name  < 3</p>
+                             </div>    
+                          </div>
+             </div>
+
+
+
+
+
+
+
+
+                    <div class="field">
+                           <label class="label">Email</label>
+                               <div class="form-group" >
+                                   <div class="control has-icons-left has-icons-right">
+                                            <input class="input form-control" type="email" placeholder="Email" formControlName="Email" >
+                                            <span class="icon is-small is-left has-text-warning">
+                                                 <i class="fas fa-envelope"></i>
+                                            </span>
+           
+                                            <span  *ngIf="f.Email.valid" class="icon is-small is-right has-text-success">
+                                                 <i class="fas fa-check"></i>
+                                            </span>
+                                            <span  *ngIf="!f.Email.valid" class="icon is-small is-right has-text-danger">
+                                                <i class="fas fa-exclamation-triangle"></i>
+                                           </span>
+                                   </div>
+                                   <p *ngIf="f.Email.valid" class="help is-success">This Email is available</p>
+           
+                                   <div  *ngIf="!f.Email.valid" class="help is-danger">
+                                       <p *ngIf="f.Email.errors.required" >This Email is invalid</p>
+                                       <p *ngIf="f.Email.errors.email" >This is not Email</p>
+                                   </div>    
+                               </div>
+                    </div>
+       
+  
+       
+                    <div class="field">
+                        <label class="label">Phone</label>
+                            <div class="form-group" >
+                                <div class="control has-icons-left has-icons-right ">
+                                         <input class="input form-control" type="text" placeholder="Phone" formControlName="Phone" >
+                                         <span class="icon is-small is-left has-text-info">
+                                              <i class="fas fa-user"></i>
+                                         </span>
+        
+                                         <span  *ngIf="f.Phone.valid" class="icon is-small is-right has-text-success">
+                                              <i class="fas fa-check"></i>
+                                         </span>
+                                         <span  *ngIf="!f.Phone.valid" class="icon is-small is-right has-text-danger">
+                                            <i class="fas fa-exclamation-triangle"></i>
+                                       </span>
+                                </div>
+                                <p *ngIf="f.Phone.valid" class="help is-success">This Phone is available</p>
+        
+                                <div *ngIf="!f.Phone.valid">
+                                    <p class="help is-danger">This Phone is invalid</p>
+                                </div>    
+                            </div>
+                 </div>
+    
+                
+  
+     
+  
+       
+      
+       
+                    <div class="field">
+                        <label class="label">Password</label>
+                            <div class="form-group" >
+                                <div class="control has-icons-left has-icons-right">
+                                         <input class="input form-control" type="password" placeholder="Password" formControlName="Password" >
+                                         <span class="icon is-small is-left has-text-dark">
+                                              <i class="fas fa-lock"></i>
+                                         </span>
+        
+                                         <span  *ngIf="f.Password.valid" class="icon is-small is-right">
+                                              <i class="fas fa-check"></i>
+                                         </span>
+                                </div>
+                                <p *ngIf="f.Password.valid" class="help is-success">This Password is available</p>
+        
+                                <div *ngIf="!f.Password.valid">
+                                    <p class="help is-danger">This Password is invalid</p>
+                                </div>    
+                            </div>
+                 </div>
+    
+             <!--   <div class="field">
+                    <label class="label">Passward</label>
+                        <div class="form-group" >
+                            <div class="control has-icons-left has-icons-right">
+                                     <input class="input form-control" type="Passward" placeholder="Passward" formControlName="Passward" >
+                                     <span class="icon is-small is-left">
+                                          <i class="fas fa-lock"></i>
+                                     </span>
+    
+                                     <span  *ngIf="f.Passward.valid" class="icon is-small is-right">
+                                          <i class="fas fa-check"></i>
+                                     </span>
+                            </div>
+                            <p *ngIf="f.Passward.valid" class="help is-success">This Passward is available</p>
+    
+                            <div *ngIf="!f.Passward.valid">
+                                <p class="help is-danger">This Passward is invalid</p>
+                            </div>    
+                        </div>
+             </div>
+       
+       
+                   --> 
+       
+       
+            </form>
+         </div>
+         <footer class="card-footer">
+                <button  class="card-footer-item"(click)="Previous()">Previous</button>
+                <button  class="card-footer-item"(click)="Next()">OK</button>
+          </footer>
+      </div>
+  
+    </div>
