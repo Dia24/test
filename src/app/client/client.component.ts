@@ -30,7 +30,7 @@ export class ClientComponent implements OnInit {
       Adress:    ['' , [ Validators.required ]],
       Accept:[false, [ Validators.required ]]
     });
-    
+  
 
 
 
@@ -41,10 +41,12 @@ export class ClientComponent implements OnInit {
     }
     Next(){
       this.onNext=true;
-      if(this.f.FirstName.valid && this.f.LastName.valid && this.f.Adress.valid )
+      this.clientWissalObject.FirstName=this.clientWissal.value.FirstName;
+      this.clientWissalObject.LastName=this.clientWissal.value.LastName;
+      if(this.f.FirstName.valid && this.f.LastName.valid && this.f.Adress.valid && this.clientWissal.value. Accept )
       {this.r.navigate(["/Next"])}
     }
-    
+   
      
       
     

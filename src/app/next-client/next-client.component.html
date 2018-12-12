@@ -23,14 +23,17 @@
                                       <span  *ngIf="f.UserName.valid" class="icon is-small is-right has-text-success">
                                            <i class="fas fa-check"></i>
                                       </span>
-                                      <span  *ngIf="!f.UserName.valid" class="icon is-small is-right has-text-danger">
+                                      <span  *ngIf="!f.UserName.valid && !f.UserName.errors.required" class="icon is-small is-right has-text-danger">
                                         <i class="fas fa-exclamation-triangle"></i>
                                    </span>
+                                   <span  *ngIf="!f.UserName.valid && onOK" class="icon is-small is-right has-text-danger">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                               </span>
                              </div>
                              <p *ngIf="f.UserName.valid" class="help is-success">This User Name is available</p>
                             
                              <div *ngIf="!f.UserName.valid">
-                                    <p *ngIf="f.UserName.errors.required"class="help is-danger">This Last Name is invalid</p>
+                                    <p *ngIf="f.UserName.errors.required && onOK"class="help is-danger">This User Name is invalid</p>
                                     <p *ngIf="!f.UserName.errors.required"class="help is-danger">This User Name  < 3</p>
                              </div>    
                           </div>
@@ -55,14 +58,18 @@
                                             <span  *ngIf="f.Email.valid" class="icon is-small is-right has-text-success">
                                                  <i class="fas fa-check"></i>
                                             </span>
-                                            <span  *ngIf="!f.Email.valid" class="icon is-small is-right has-text-danger">
+                                            <span  *ngIf="!f.Email.valid && f.Email.errors.email" class="icon is-small is-right has-text-danger">
                                                 <i class="fas fa-exclamation-triangle"></i>
                                            </span>
+                                           <span  *ngIf="!f.Email.valid && onOK" class="icon is-small is-right has-text-danger">
+                                            <i class="fas fa-exclamation-triangle"></i>
+                                          </span>
+                                  
                                    </div>
                                    <p *ngIf="f.Email.valid" class="help is-success">This Email is available</p>
            
                                    <div  *ngIf="!f.Email.valid" class="help is-danger">
-                                       <p *ngIf="f.Email.errors.required" >This Email is invalid</p>
+                                       <p *ngIf="f.Email.errors.required && onOK" >This Email is invalid</p>
                                        <p *ngIf="f.Email.errors.email" >This is not Email</p>
                                    </div>    
                                </div>
@@ -121,7 +128,7 @@
                                 </div>    
                             </div>
                  </div>
-    
+                <p>{{this.clientNextWissalObject.UserName}}</p>
              <!--   <div class="field">
                     <label class="label">Passward</label>
                         <div class="form-group" >
@@ -151,7 +158,7 @@
          </div>
          <footer class="card-footer">
                 <button  class="card-footer-item"(click)="Previous()">Previous</button>
-                <button  class="card-footer-item"(click)="Next()">OK</button>
+                <button  class="card-footer-item"(click)="submit()">OK</button>
           </footer>
       </div>
   
