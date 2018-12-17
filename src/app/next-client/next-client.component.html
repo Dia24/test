@@ -9,7 +9,7 @@
   
   
                             
-             <form [formGroup]="clientNextWissal" novalidate>
+             <form [formGroup]="clientNextWissal" >
        
        
                 <div class="field">
@@ -89,14 +89,18 @@
                                          <span  *ngIf="f.Phone.valid" class="icon is-small is-right has-text-success">
                                               <i class="fas fa-check"></i>
                                          </span>
-                                         <span  *ngIf="!f.Phone.valid" class="icon is-small is-right has-text-danger">
+                                         <span  *ngIf="!f.Phone.valid && !f.Phone.errors.required" class="icon is-small is-right has-text-danger">
                                             <i class="fas fa-exclamation-triangle"></i>
                                        </span>
+                                       <span  *ngIf="!f.Phone.valid && onOK" class="icon is-small is-right has-text-danger">
+                                            <i class="fas fa-exclamation-triangle"></i>
+                                          </span>
                                 </div>
                                 <p *ngIf="f.Phone.valid" class="help is-success">This Phone is available</p>
         
-                                <div *ngIf="!f.Phone.valid">
-                                    <p class="help is-danger">This Phone is invalid</p>
+                                <div *ngIf="!f.Phone.valid" class="help is-danger">
+                                        <p *ngIf="f.Phone.errors.required && onOK" >This Phone is invalid</p>
+                                        <p *ngIf="!f.Phone.errors.required" >This is not Phone</p>
                                 </div>    
                             </div>
                  </div>
@@ -117,18 +121,25 @@
                                               <i class="fas fa-lock"></i>
                                          </span>
         
-                                         <span  *ngIf="f.Password.valid" class="icon is-small is-right">
+                                         <span  *ngIf="f.Password.valid" class="icon is-small is-right has-text-success">
                                               <i class="fas fa-check"></i>
                                          </span>
+                                         <span  *ngIf="!f.Password.valid && !f.Password.errors.required" class="icon is-small is-right has-text-danger">
+                                                <i class="fas fa-exclamation-triangle"></i>
+                                           </span>
+                                           <span  *ngIf="!f.Password.valid && onOK" class="icon is-small is-right has-text-danger">
+                                                <i class="fas fa-exclamation-triangle"></i>
+                                              </span>
                                 </div>
                                 <p *ngIf="f.Password.valid" class="help is-success">This Password is available</p>
         
-                                <div *ngIf="!f.Password.valid">
-                                    <p class="help is-danger">This Password is invalid</p>
+                                <div *ngIf="!f.Password.valid"class="help is-danger">
+                                        <p *ngIf="f.Password.errors.required && onOK" >This Password is invalid</p>
+                                        <p *ngIf="!f.Password.errors.required" >This is not Password</p>
                                 </div>    
                             </div>
                  </div>
-                <p>{{this.clientNextWissalObject.UserName}}</p>
+                
              <!--   <div class="field">
                     <label class="label">Passward</label>
                         <div class="form-group" >

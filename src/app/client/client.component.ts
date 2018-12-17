@@ -5,6 +5,7 @@ import { Router } from "@angular/router";
 
 
 
+
 @Component({
   selector: 'app-client',
   templateUrl: './client.component.html',
@@ -21,13 +22,22 @@ export class ClientComponent implements OnInit {
   
   };
 
-  constructor(private cw: FormBuilder,private r:Router) { }
+  constructor(private cw: FormBuilder,private r:Router) { 
+    
+   
+  }
 
   ngOnInit() {
+   
+    if(localStorage.getItem('acc')=='true'){
+      this.clientWissalObject.FirstName=localStorage.getItem('FirstName');
+      this.clientWissalObject.LastName=localStorage.getItem('LastName');
+      this.clientWissalObject.Adress=localStorage.getItem('Adress');
+      }
     this.clientWissal = this.cw.group({
-      FirstName: [ this.clientWissalObject.FirstName, [ Validators.required,Validators.pattern('^([a-zA-Z\ ])+$') ]],
+      FirstName: [this.clientWissalObject.FirstName, [ Validators.required,Validators.pattern('^([a-zA-Z\ ])+$') ]],
       LastName:  [this.clientWissalObject.LastName, [ Validators.required,Validators.pattern('^([a-zA-Z\ ])+$') ]],
-      Adress:    ['' , [ Validators.required ]],
+      Adress:    [this.clientWissalObject.Adress , [ Validators.required ]],
       Accept:[false, [ Validators.required ]]
     });
   
@@ -41,10 +51,14 @@ export class ClientComponent implements OnInit {
     }
     Next(){
       this.onNext=true;
-      this.clientWissalObject.FirstName=this.clientWissal.value.FirstName;
-      this.clientWissalObject.LastName=this.clientWissal.value.LastName;
+      localStorage.setItem('FirstName',this.clientWissal.value.FirstName);
+      localStorage.setItem('LastName',this.clientWissal.value.LastName);
+      localStorage.setItem('Adress',this.clientWissal.value.Adress);
       if(this.f.FirstName.valid && this.f.LastName.valid && this.f.Adress.valid && this.clientWissal.value. Accept )
-      {this.r.navigate(["/Next"])}
+      {this.r.navigate(["/Next"])
+     localStorage.setItem('acc','true');
+    }
+
     }
    
      
